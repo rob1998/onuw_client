@@ -41,6 +41,12 @@ export function sendKillSelect(killSelect, player) {
   }
 }
 
+export function resetGame() {
+  return function (dispatch, getState, { emit }) {
+    emit(types.UPDATE_GAME_RESET, null);
+  }
+}
+
 function majAdd() {
   return {
     type: types.MAJORITY_ADD,

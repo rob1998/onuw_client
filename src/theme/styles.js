@@ -144,6 +144,16 @@ const StartButtonWrapper = styled.div`
   justify-content: center;
 `;
 
+const ResetButton = styled.button`
+  background-color: #181E24;
+  color: #f7f7f7;
+  border: 2px solid #f7f7f7;
+  border-radius: 4px;
+  font-size: 1.25em;
+  margin-top: 1em;
+  cursor: pointer;
+`;
+
 // Styles for Intro component
 // FOR: components/intro.js
 const NameTextInput = styled.input`
@@ -255,6 +265,7 @@ export {
   StartButton,
   StartButtonPressed,
   StartButtonWrapper,
+  ResetButton,
   HeaderWrapper,
   TimeOfDay,
   NameTextInput,

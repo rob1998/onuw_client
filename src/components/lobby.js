@@ -80,7 +80,8 @@ const mapDispatchToProps = dispatch => {
   return {
     setPhase: gamePhase => dispatch(setPhaseState(gamePhase, true)),
     majAdd: () => dispatch(majorityNumAdd()),
-    majReset: () => dispatch(majorityReset())
+    majReset: () => dispatch(majorityReset()),
+    resetGame: () => dispatch(resetGame())
   };
 };
 
