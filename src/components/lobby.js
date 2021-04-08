@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setPhaseState } from "../actions/gameStateActions";
-import { majorityNumAdd, majorityReset } from "../actions/gameActions";
+import { majorityNumAdd, majorityReset, resetGame } from "../actions/gameActions";
 
 import Header from "./header";
 import Players from "./players";
 import Footer from "./footer";
 import { StartButton, StartButtonPressed } from "../theme/styles";
+import { ResetButton } from "../theme/styles";
 import { MainWrapper } from "../theme/styles";
 
 // This the the view that the players see when they are waiting to start a game
@@ -19,6 +20,7 @@ class Lobby extends Component {
 
     this.handleStart = this.handleStart.bind(this);
     this.handleConfirm = this.handleConfirm.bind(this);
+    this.handleResetGame = this.handleResetGame.bind(this);
   }
 
   handleStart() {
@@ -31,6 +33,10 @@ class Lobby extends Component {
     this.setState({
       pressed: true
     });
+  }
+
+  handleResetGame() {
+    this.props.resetGame();
   }
 
   render() {
@@ -56,6 +62,7 @@ class Lobby extends Component {
         <Header />
         <Players />
         {button}
+        <ResetButton onClick={this.handleResetGame}> Reset </ResetButton>
         <Footer />
       </MainWrapper>
     );
@@ -73,7 +80,8 @@ const mapDispatchToProps = dispatch => {
   return {
     setPhase: gamePhase => dispatch(setPhaseState(gamePhase, true)),
     majAdd: () => dispatch(majorityNumAdd()),
-    majReset: () => dispatch(majorityReset())
+    majReset: () => dispatch(majorityReset()),
+    resetGame: () => dispatch(resetGame())
   };
 };
 
